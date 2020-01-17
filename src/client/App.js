@@ -8,7 +8,7 @@ import AddTodo from './components/todos/AddTodo';
 export default class App extends Component {
   constructor(props) {
     super(props)
-    this.state = {
+    this.state = { 
       todos: [
         { "id": uuid.v4(), "title": "Item 1", "completed": false },
         { "id": uuid.v4(), "title": "Item 2", "completed": false },
