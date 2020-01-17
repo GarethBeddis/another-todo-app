@@ -17,13 +17,18 @@ export default class AddTodo extends Component {
     onSubmit = (e) => {
         e.preventDefault();
 
-        // Add todo
-        this.props.addTodo(this.state.title)
-        
-        // Reset input
-        this.setState({
-            "title": ""
-        })
+        // Check input is not empty
+        if(this.state.title !== "") {
+            // Add todo
+            this.props.addTodo(this.state.title)
+            
+            // Reset input
+            this.setState({
+                "title": ""
+            })
+        } 
+
+
     }
 
     render() {
