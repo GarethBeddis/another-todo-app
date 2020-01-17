@@ -12,7 +12,8 @@ export default class TodoItem extends Component {
                     checked={completed}
                     onChange={this.props.toggleComplete.bind(this, id)}
                 />
-                {title}
+                <label>{title}</label>
+                <button onClick={this.props.deleteTodo.bind(this, id)}>X</button>
             </li>
         )
     }

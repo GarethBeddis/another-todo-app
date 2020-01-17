@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import uuid from 'uuid';
 
 import Todos from './components/todos/Todos';
@@ -12,7 +13,7 @@ export default class App extends Component {
         { "id": uuid.v4(), "title": "Item 1", "completed": false },
         { "id": uuid.v4(), "title": "Item 2", "completed": false },
         { "id": uuid.v4(), "title": "Item 3", "completed": false },
-      ]
+      ],
     }
   }
   
@@ -21,7 +22,6 @@ export default class App extends Component {
   }
 
   addTodo = (title) => {
-
     const newTodo = {
       "id": uuid.v4(),
       "title": title,
@@ -30,6 +30,12 @@ export default class App extends Component {
 
     this.setState({
       "todos": [...this.state.todos, newTodo]
+    })
+  }
+
+  deleteTodo = (id) => {
+    this.setState({
+      todos: [...this.state.todos.filter(todo => todo.id !== id)]
     })
   }
 
@@ -54,7 +60,9 @@ export default class App extends Component {
         <Todos 
           todos={this.state.todos}
           toggleComplete={this.toggleComplete}
+          deleteTodo={this.deleteTodo}
         />
+        <span>{this.state.todos.filter(todo => todo.completed === false).length} remaining</span>
       </div>
     );
   }
