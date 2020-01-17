@@ -1,5 +1,7 @@
 # Another Todo App
 
+A simple project to refamiliarise myself working with React, Node and Express, whilst learning MongoDB.
+
 ## Quick Start
 
 ```bash
