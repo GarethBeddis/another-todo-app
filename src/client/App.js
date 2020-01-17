@@ -1,22 +1,36 @@
 import React, { Component } from 'react';
-import './stylesheets/app.css';
+import uuid from 'uuid';
 
 import Todos from './components/todos/Todos';
+import AddTodo from './components/todos/AddTodo';
 
 export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       todos: [
-        { "id": 1, "title": "Item 1", "completed": false },
-        { "id": 2, "title": "Item 2", "completed": false },
-        { "id": 3, "title": "Item 3", "completed": false },
+        { "id": uuid.v4(), "title": "Item 1", "completed": false },
+        { "id": uuid.v4(), "title": "Item 2", "completed": false },
+        { "id": uuid.v4(), "title": "Item 3", "completed": false },
       ]
     }
   }
   
   componentDidMount() {
 
+  }
+
+  addTodo = (title) => {
+
+    const newTodo = {
+      "id": uuid.v4(),
+      "title": title,
+      "completed": false 
+    }
+
+    this.setState({
+      "todos": [...this.state.todos, newTodo]
+    })
   }
 
   toggleComplete = (id) => {
@@ -34,6 +48,9 @@ export default class App extends Component {
     return (
       <div>
         <h1>Another Todo App</h1>
+        <AddTodo 
+          addTodo={this.addTodo}
+        />
         <Todos 
           todos={this.state.todos}
           toggleComplete={this.toggleComplete}
