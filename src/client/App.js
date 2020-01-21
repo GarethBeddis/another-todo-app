@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-
 import uuid from 'uuid';
-
 import Todos from './components/todos/Todos';
 import AddTodo from './components/todos/AddTodo';
 
@@ -33,13 +31,16 @@ export default class App extends Component {
   }
 
 
-  addTodo = (title) => {
-    // TODO: send POST req
-    const newTodo = {
-      "id": uuid.v4(),
-      "title": title,
-      "completed": false 
-    }
+  addTodo = async (title) => {
+    const rawResponse = await fetch('/api/todos', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({title: title})
+    })
+
+    const newTodo = await rawResponse.json();
 
     this.setState({
       "todos": [...this.state.todos, newTodo]
@@ -71,7 +72,7 @@ export default class App extends Component {
         <AddTodo 
           addTodo={this.addTodo}
         />
-        <Todos 
+        <Todos
           todos={this.state.todos}
           toggleComplete={this.toggleComplete}
           deleteTodo={this.deleteTodo}

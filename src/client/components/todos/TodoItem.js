@@ -11,7 +11,7 @@ export default class TodoItem extends Component {
 
         return (
             <ListItem>
-                <Checkbox
+                <Checkbox 
                     label={title}
                     checked={completed}
                     onChange={this.props.toggleComplete.bind(this, id)}
