@@ -1,4 +1,5 @@
 const express = require('express');
+const connectDB = require('./config/db')
 
 const app = express();
 
@@ -9,3 +10,5 @@ app.use(express.static('dist'));
 app.use('/api/todos', require('./routes/api/todos'))
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}!`));
+
+connectDB();

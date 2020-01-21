@@ -9,19 +9,32 @@ export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = { 
-      todos: [
-        { "id": uuid.v4(), "title": "Item 1", "completed": false },
-        { "id": uuid.v4(), "title": "Item 2", "completed": false },
-        { "id": uuid.v4(), "title": "Item 3", "completed": false },
-      ],
+      todos: []
     }
   }
   
   componentDidMount() {
-
+    this.getTodos();
   }
 
+  getTodos = () => {
+    fetch("/api/todos")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            todos: result
+          });
+        },
+        (error) => {
+          console.error(error)
+        }
+      );
+  }
+
+
   addTodo = (title) => {
+    // TODO: send POST req
     const newTodo = {
       "id": uuid.v4(),
       "title": title,
@@ -34,6 +47,7 @@ export default class App extends Component {
   }
 
   deleteTodo = (id) => {
+    // TODO: send DELETE req
     this.setState({
       todos: [...this.state.todos.filter(todo => todo.id !== id)]
     })
