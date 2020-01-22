@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import uuid from 'uuid';
 import Todos from './components/todos/Todos';
 import AddTodo from './components/todos/AddTodo';
 
@@ -50,7 +49,6 @@ export default class App extends Component {
   };
 
   deleteTodo = async id => {
-    // TODO: send DELETE req
     try {
       const url = '/api/todos/' + id;
       await fetch(url, {
@@ -65,15 +63,31 @@ export default class App extends Component {
     }
   };
 
-  toggleComplete = id => {
-    this.setState({
-      todos: this.state.todos.map(todo => {
-        if (todo.id === id) {
-          todo.completed = !todo.completed;
-        }
-        return todo;
-      }),
-    });
+  toggleComplete = async id => {
+    try {
+      const todoStatus = this.state.todos.find(todo => todo.id == id);
+      const url = '/api/todos/' + id;
+      await fetch(url, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          completed: !todoStatus.completed,
+        }),
+      });
+
+      this.setState({
+        todos: this.state.todos.map(todo => {
+          if (todo.id === id) {
+            todo.completed = !todo.completed;
+          }
+          return todo;
+        }),
+      });
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   render() {

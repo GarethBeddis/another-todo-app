@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Todo = require('../../models/todo');
-const uuid = require('uuid');
+const uuid = require('uuid/v4');
 
 // GET all Todo items
 router.get('/', async (req, res) => {
@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const newTodo = new Todo({
-      id: uuid.v4(),
+      id: uuid(),
       title: req.body.title,
       completed: false,
     });
@@ -35,6 +35,19 @@ router.get('/:id', async (req, res) => {
     console.log(err);
     res.status(500).json('Sever error');
   }
+});
+
+// UPDATE todo by id
+router.patch('/:id', async (req, res) => {
+  Todo.findOneAndUpdate(
+    { id: req.params.id }, // query
+    { $set: req.body }, // new data
+    { upsert: true },
+    err => {
+      if (err) return res.send(500, { error: err });
+      return res.send('Succesfully updated.');
+    },
+  );
 });
 
 // DELETE todo by id
