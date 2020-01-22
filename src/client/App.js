@@ -15,42 +15,54 @@ export default class App extends Component {
     this.getTodos();
   }
 
-  getTodos = () => {
-    fetch('/api/todos')
-      .then(res => res.json())
-      .then(
-        result => {
-          this.setState({
-            todos: result,
-          });
-        },
-        error => {
-          console.error(error);
-        },
-      );
+  getTodos = async () => {
+    try {
+      const url = '/api/todos';
+      const response = await fetch(url);
+      const result = await response.json();
+      this.setState({
+        todos: result,
+      });
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   addTodo = async title => {
-    const response = await fetch('/api/todos', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ title: title }),
-    });
+    try {
+      const url = '/api/todos';
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ title: title }),
+      });
 
-    const newTodo = await response.json();
+      const newTodo = await response.json();
 
-    this.setState({
-      todos: [...this.state.todos, newTodo],
-    });
+      this.setState({
+        todos: [...this.state.todos, newTodo],
+      });
+    } catch (err) {
+      console.error(err);
+    }
   };
 
-  deleteTodo = id => {
+  deleteTodo = async id => {
     // TODO: send DELETE req
-    this.setState({
-      todos: [...this.state.todos.filter(todo => todo.id !== id)],
-    });
+    try {
+      const url = '/api/todos/' + id;
+      await fetch(url, {
+        method: 'DELETE',
+      });
+
+      this.setState({
+        todos: [...this.state.todos.filter(todo => todo.id !== id)],
+      });
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   toggleComplete = id => {

@@ -26,4 +26,23 @@ router.post('/', async (req, res) => {
   }
 });
 
+// GET todo by id
+router.get('/:id', async (req, res) => {
+  try {
+    const todo = await Todo.find({ id: req.params.id });
+    res.json(todo);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json('Sever error');
+  }
+});
+
+// DELETE todo by id
+router.delete('/:id', async (req, res) => {
+  Todo.deleteOne({ id: req.params.id }, err => {
+    if (err) return handleError(err);
+  });
+  res.send('Deleted todo id: ' + req.params.id);
+});
+
 module.exports = router;
