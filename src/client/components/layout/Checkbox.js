@@ -45,11 +45,11 @@ const Label = styled.label`
     width: 22px;
     background-color: transparent;
     border-radius: 50px;
-    border: 1px solid #222;
+    border: 1px solid #ff2173;
   }
 
   &:hover input:not(:checked) ~ .checkmark:after {
-    border: solid #222;
+    border: solid #ff2173;
     border-width: 0 3px 3px 0;
     opacity: 1;
     transition: opacity 0.2s;
@@ -62,7 +62,7 @@ const Label = styled.label`
   }
 
   input:checked ~ .checkmark {
-    background-color: #222;
+    background-color: #ff2173;
   }
 
   input:checked ~ .checkmark:after {
@@ -72,8 +72,8 @@ const Label = styled.label`
   .checkmark:after {
     left: 8px;
     top: 4px;
-    width: 5px;
     height: 10px;
+    width: 4px;
     border: solid white;
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);
