@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Todos from './components/todos/Todos';
 import AddTodo from './components/todos/AddTodo';
+import Sidebar from './components/containers/Sidebar';
+import AppContainer from './components/containers/AppContainer';
 
 export default class App extends Component {
   constructor(props) {
@@ -92,19 +94,22 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Another Todo App</h1>
-        <AddTodo addTodo={this.addTodo} />
-        <Todos
-          todos={this.state.todos}
-          toggleComplete={this.toggleComplete}
-          deleteTodo={this.deleteTodo}
-        />
-        <span>
-          {this.state.todos.filter(todo => todo.completed === false).length}{' '}
-          remaining
-        </span>
-      </div>
+      <AppContainer>
+        <Sidebar></Sidebar>
+        <div className="content">
+          <h1 className="title">Another Todo App</h1>
+          <AddTodo addTodo={this.addTodo} />
+          <Todos
+            todos={this.state.todos}
+            toggleComplete={this.toggleComplete}
+            deleteTodo={this.deleteTodo}
+          />
+          <span>
+            {this.state.todos.filter(todo => todo.completed === false).length}{' '}
+            remaining
+          </span>
+        </div>
+      </AppContainer>
     );
   }
 }

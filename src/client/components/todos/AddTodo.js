@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import styled from 'styled-components';
 export default class AddTodo extends Component {
   constructor(props) {
     super(props);
@@ -32,15 +32,24 @@ export default class AddTodo extends Component {
   render() {
     return (
       <form onSubmit={this.onSubmit}>
-        <input
+        <InputText
           type="text"
           value={this.state.title}
           name="title"
           placeholder="Add item..."
           onChange={this.onChange}
         />
-        <input type="submit" value="Submit" />
+        <InputSubmit type="submit" value="Submit" />
       </form>
     );
   }
 }
+
+const InputText = styled.input`
+  padding: 5px;
+  border: 1px solid #d0cfcf;
+`;
+
+const InputSubmit = styled.input`
+  display: none;
+`;
