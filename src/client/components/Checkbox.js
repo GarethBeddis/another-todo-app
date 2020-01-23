@@ -18,7 +18,6 @@ export default class Checkbox extends Component {
 }
 
 const Label = styled.label`
-  font-family: initial;
   font-size: 16px;
   position: relative;
   padding-left: 35px;

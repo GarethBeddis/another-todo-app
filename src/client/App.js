@@ -9,6 +9,7 @@ export default class App extends Component {
     super(props);
     this.state = {
       todos: [],
+      showingTodos: 'all',
     };
   }
 
@@ -93,6 +94,17 @@ export default class App extends Component {
   };
 
   render() {
+    const shownTodos = this.state.todos.filter(todo => {
+      switch (this.state.showingTodos) {
+        case 'active':
+          return !todo.completed;
+        case 'completed':
+          return todo.completed;
+        default:
+          return true;
+      }
+    }, this);
+
     return (
       <AppContainer>
         <Sidebar></Sidebar>
@@ -100,7 +112,7 @@ export default class App extends Component {
           <h1 className="title">Another Todo App</h1>
           <AddTodo addTodo={this.addTodo} />
           <Todos
-            todos={this.state.todos}
+            todos={shownTodos}
             toggleComplete={this.toggleComplete}
             deleteTodo={this.deleteTodo}
           />

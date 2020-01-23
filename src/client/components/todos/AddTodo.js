@@ -31,7 +31,7 @@ export default class AddTodo extends Component {
 
   render() {
     return (
-      <form onSubmit={this.onSubmit}>
+      <AddTodoForm onSubmit={this.onSubmit}>
         <InputText
           type="text"
           value={this.state.title}
@@ -40,14 +40,18 @@ export default class AddTodo extends Component {
           onChange={this.onChange}
         />
         <InputSubmit type="submit" value="Submit" />
-      </form>
+      </AddTodoForm>
     );
   }
 }
 
+const AddTodoForm = styled.form`
+  padding: 5px 0;
+`;
+
 const InputText = styled.input`
   padding: 5px;
-  border: 1px solid #d0cfcf;
+  border: 1px solid #e4e4e4;
 `;
 
 const InputSubmit = styled.input`

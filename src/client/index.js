@@ -4,5 +4,6 @@ import App from './App';
 
 import './stylesheets/reset.css';
 import './stylesheets/app.css';
+import 'typeface-roboto';
 
 ReactDOM.render(<App />, document.getElementById('root'));
