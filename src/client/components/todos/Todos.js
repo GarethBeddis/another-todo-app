@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
-import TodoItem from './TodoItem';
 import styled from 'styled-components';
+import TodoItem from './TodoItem';
+import AddTodo from './AddTodo';
+import TodoFilters from './TodoFilters';
 
 export default class Todos extends Component {
+  updateFilter = newFilter => {
+    return;
+  };
+
   render() {
-    // Todo: add <ul> wrapper
-    const todoItems = this.props.todos.map(todo => {
+    this.todoItems = this.props.todos.map(todo => {
       return (
         <TodoItem
           key={todo.id}
@@ -16,10 +21,21 @@ export default class Todos extends Component {
       );
     });
 
-    return <TodosContainer>{todoItems}</TodosContainer>;
+    return (
+      <TodosContainer>
+        <TodoFilters
+          filters={this.props.filters}
+          updateFilter={this.updateFilter}
+        />
+        <AddTodo addTodo={this.props.addTodo} />
+        <TodoItemsContainer>{this.todoItems}</TodoItemsContainer>
+      </TodosContainer>
+    );
   }
 }
 
 const TodosContainer = styled.div`
   padding: 5px 0 10px;
 `;
+
+const TodoItemsContainer = styled.ul``;

@@ -3,10 +3,12 @@ import styled from 'styled-components';
 
 export default class Sidebar extends Component {
   render() {
+    // TODO: React router pages
+
     const sidebarItemContents = [
-      { label: 'All' },
-      { label: 'Active' },
-      { label: 'Completed' },
+      { label: 'Inbox', link: '/' },
+      { label: 'Today', link: '/today' },
+      { label: 'Upcoming', link: '/upcoming' },
     ];
 
     const sidebarItems = sidebarItemContents.map(item => {

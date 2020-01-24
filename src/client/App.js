@@ -11,6 +11,8 @@ export default class App extends Component {
       todos: [],
       showingTodos: 'all',
     };
+
+    this.filters = ['all', 'active', 'completed'];
   }
 
   componentDidMount() {
@@ -94,7 +96,7 @@ export default class App extends Component {
   };
 
   render() {
-    const shownTodos = this.state.todos.filter(todo => {
+    this.shownTodos = this.state.todos.filter(todo => {
       switch (this.state.showingTodos) {
         case 'active':
           return !todo.completed;
@@ -107,14 +109,14 @@ export default class App extends Component {
 
     return (
       <AppContainer>
-        <Sidebar></Sidebar>
         <div className="content">
           <h1 className="title">Another Todo App</h1>
-          <AddTodo addTodo={this.addTodo} />
           <Todos
-            todos={shownTodos}
-            toggleComplete={this.toggleComplete}
+            addTodo={this.addTodo}
             deleteTodo={this.deleteTodo}
+            filters={this.filters}
+            todos={this.shownTodos}
+            toggleComplete={this.toggleComplete}
           />
           <span>
             {this.state.todos.filter(todo => todo.completed === false).length}{' '}

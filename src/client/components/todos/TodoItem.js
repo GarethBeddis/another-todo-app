@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Checkbox from '../Checkbox';
+import Checkbox from '../common/Checkbox';
 import styled from 'styled-components';
 
 export default class TodoItem extends Component {
