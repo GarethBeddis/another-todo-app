@@ -9,10 +9,8 @@ export default class App extends Component {
     super(props);
     this.state = {
       todos: [],
-      showingTodos: 'all',
+      todoFilter: 'all',
     };
-
-    this.filters = ['all', 'active', 'completed'];
   }
 
   componentDidMount() {
@@ -95,9 +93,14 @@ export default class App extends Component {
     }
   };
 
+  updateFilter = async event => {
+    console.log(event.target.value);
+    await this.setState({ todoFilter: event.target.value });
+  };
+
   render() {
     this.shownTodos = this.state.todos.filter(todo => {
-      switch (this.state.showingTodos) {
+      switch (this.state.todoFilter) {
         case 'active':
           return !todo.completed;
         case 'completed':
@@ -114,7 +117,7 @@ export default class App extends Component {
           <Todos
             addTodo={this.addTodo}
             deleteTodo={this.deleteTodo}
-            filters={this.filters}
+            updateFilter={this.updateFilter}
             todos={this.shownTodos}
             toggleComplete={this.toggleComplete}
           />

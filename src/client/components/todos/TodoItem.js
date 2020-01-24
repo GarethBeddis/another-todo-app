@@ -13,9 +13,7 @@ export default class TodoItem extends Component {
           checked={completed}
           onChange={this.props.toggleComplete.bind(this, id)}
         />
-        <DeleteButton onClick={this.props.deleteTodo.bind(this, id)}>
-          X
-        </DeleteButton>
+        <DeleteButton onClick={this.props.deleteTodo.bind(this, id)} />
       </ListItem>
     );
   }
@@ -24,6 +22,7 @@ export default class TodoItem extends Component {
 const ListItem = styled.li`
   padding: 10px 0;
   list-style: none;
+  position: relative;
 
   button {
     margin: 0 0 0 10px;
@@ -31,12 +30,24 @@ const ListItem = styled.li`
 `;
 
 const DeleteButton = styled.button`
-  margin: 0 0 0 10px;
+  position: absolute;
+  right: 10px;
+  top: 7px;
+  bottom: 0;
+  display: none;
   border: none;
-  border-radius: 25px;
   color: #888;
-  height: 25px;
-  width: 25px;
+  height: 22px;
+  width: 22px;
   cursor: pointer;
-  text-align: center;
+  transition: opacity 0.2s ease-out;
+  background: none;
+
+  ${ListItem}:hover & {
+    display: block;
+  }
+
+  :after {
+    content: 'X';
+  }
 `;

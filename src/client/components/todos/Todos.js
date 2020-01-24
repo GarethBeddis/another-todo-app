@@ -5,10 +5,6 @@ import AddTodo from './AddTodo';
 import TodoFilters from './TodoFilters';
 
 export default class Todos extends Component {
-  updateFilter = newFilter => {
-    return;
-  };
-
   render() {
     this.todoItems = this.props.todos.map(todo => {
       return (
@@ -23,10 +19,7 @@ export default class Todos extends Component {
 
     return (
       <TodosContainer>
-        <TodoFilters
-          filters={this.props.filters}
-          updateFilter={this.updateFilter}
-        />
+        <TodoFilters updateFilter={this.props.updateFilter} />
         <AddTodo addTodo={this.props.addTodo} />
         <TodoItemsContainer>{this.todoItems}</TodoItemsContainer>
       </TodosContainer>

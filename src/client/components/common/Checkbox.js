@@ -20,7 +20,7 @@ export default class Checkbox extends Component {
 const Label = styled.label`
   font-size: 16px;
   position: relative;
-  padding-left: 35px;
+  padding: 0 35px;
   margin-bottom: 12px;
   cursor: pointer;
   -webkit-user-select: none;
@@ -78,5 +78,9 @@ const Label = styled.label`
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+  }
+
+  .text {
+    user-select: text;
   }
 `;

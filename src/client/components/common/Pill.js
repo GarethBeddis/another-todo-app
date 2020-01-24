@@ -5,13 +5,27 @@ export default class Pill extends Component {
   render() {
     return (
       <PillContainer>
-        <PillLabel type="button" onClick={this.props.onClick}>
+        <PillButton
+          type="button"
+          value={this.props.label}
+          onClick={e => this.props.onClick(e)}
+        >
           {this.props.label}
-        </PillLabel>
+        </PillButton>
       </PillContainer>
     );
   }
 }
 
-const PillContainer = styled.div``;
-const PillLabel = styled.button``;
+const PillContainer = styled.div`
+  display: inline-block;
+`;
+
+const PillButton = styled.button`
+  text-transform: capitalize;
+  border: none;
+  padding: 3px 15px;
+  border-radius: 100px;
+  background: none;
+  cursor: pointer;
+`;

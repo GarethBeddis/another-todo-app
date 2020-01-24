@@ -3,18 +3,26 @@ import styled from 'styled-components';
 import Pill from '../common/Pill';
 
 export default class TodoFilters extends Component {
+  constructor(props) {
+    super(props);
+
+    this.filters = ['all', 'active', 'completed'];
+  }
+
   render() {
-    this.todoFilters = this.props.filters.map(label => {
+    this.todoFilters = this.filters.map(label => {
       return (
         <Pill
           key={label}
           label={label}
-          onClick={this.props.updateFilter(label)}
-        />
+          onClick={e => this.props.updateFilter(e)}
+        ></Pill>
       );
     });
     return <FiltersContainer>{this.todoFilters}</FiltersContainer>;
   }
 }
 
-const FiltersContainer = styled.div``;
+const FiltersContainer = styled.div`
+  text-align: center;
+`;
