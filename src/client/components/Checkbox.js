@@ -69,10 +69,10 @@ const Label = styled.label`
   }
 
   .checkmark:after {
-    left: 8px;
-    top: 4px;
-    height: 10px;
-    width: 4px;
+    left: 7px;
+    top: 3px;
+    height: 13px;
+    width: 7px;
     border: solid white;
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);
