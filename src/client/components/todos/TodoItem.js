@@ -23,28 +23,25 @@ const ListItem = styled.li`
   padding: 10px 0;
   list-style: none;
   position: relative;
-
-  button {
-    margin: 0 0 0 10px;
-  }
+  display: flex;
+ align-items: center;
 `;
 
 const DeleteButton = styled.button`
-  position: absolute;
-  right: 10px;
-  top: 7px;
-  bottom: 0;
-  display: none;
+  display: flex;
+  align-items: center;
+  opacity: 0;
   border: none;
   color: #888;
   height: 22px;
   width: 22px;
+  padding-right: 5px;
   cursor: pointer;
-  transition: opacity 0.2s ease-out;
+  transition: opacity 0.1s ease-out;
   background: none;
 
   ${ListItem}:hover & {
-    display: block;
+    opacity: 100%;
   }
 
   :after {
