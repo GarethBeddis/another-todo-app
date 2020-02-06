@@ -5,13 +5,15 @@ export default class Checkbox extends Component {
   render() {
     return (
       <Label>
+        <div className="checkbox-container">
+          <input
+            type="checkbox"
+            checked={this.props.checked}
+            onChange={this.props.onChange}
+          />
+          <span className="checkmark"></span>
+        </div>
         <span className="text">{this.props.label}</span>
-        <input
-          type="checkbox"
-          checked={this.props.checked}
-          onChange={this.props.onChange}
-        />
-        <span className="checkmark"></span>
       </Label>
     );
   }
@@ -20,13 +22,13 @@ export default class Checkbox extends Component {
 const Label = styled.label`
   font-size: 16px;
   position: relative;
-  padding: 0 35px;
   margin-bottom: 12px;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  display: flex;
 
   input {
     position: absolute;
@@ -36,10 +38,14 @@ const Label = styled.label`
     width: 0;
   }
 
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    padding: 0 10px 0 5px;
+  }
+
   .checkmark {
-    position: absolute;
-    top: -3px;
-    left: 0;
+    position: relative;
     height: 22px;
     width: 22px;
     background-color: transparent;
@@ -82,5 +88,8 @@ const Label = styled.label`
 
   .text {
     user-select: text;
+    word-wrap: anywhere;
+    display: flex;
+    align-items: center;
   }
 `;

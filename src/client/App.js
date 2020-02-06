@@ -3,6 +3,7 @@ import Todos from './components/todos/Todos';
 import AddTodo from './components/todos/AddTodo';
 import Sidebar from './components/containers/Sidebar';
 import AppContainer from './components/containers/AppContainer';
+import styled from 'styled-components';
 
 export default class App extends Component {
   constructor(props) {
@@ -112,21 +113,23 @@ export default class App extends Component {
 
     return (
       <AppContainer>
-        <div className="content">
-          <h1 className="title">Another Todo App</h1>
-          <Todos
-            addTodo={this.addTodo}
-            deleteTodo={this.deleteTodo}
-            updateFilter={this.updateFilter}
-            todos={this.shownTodos}
-            toggleComplete={this.toggleComplete}
-          />
-          <span>
-            {this.state.todos.filter(todo => todo.completed === false).length}{' '}
-            remaining
-          </span>
-        </div>
+        <Title>Another Todo App</Title>
+        <Todos
+          addTodo={this.addTodo}
+          deleteTodo={this.deleteTodo}
+          updateFilter={this.updateFilter}
+          todos={this.shownTodos}
+          toggleComplete={this.toggleComplete}
+        />
+        <span>
+          {this.state.todos.filter(todo => todo.completed === false).length}{' '}
+          remaining
+        </span>
       </AppContainer>
     );
   }
 }
+
+const Title = styled.h1 `
+  text-align: center;
+`;
