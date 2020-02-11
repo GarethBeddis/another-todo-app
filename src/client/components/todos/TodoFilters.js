@@ -5,6 +5,9 @@ import Pill from '../common/Pill';
 export default class TodoFilters extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      activeFilter: 'all',
+    }
 
     this.filters = ['all', 'active', 'completed'];
   }
@@ -26,4 +29,5 @@ export default class TodoFilters extends Component {
 const FiltersContainer = styled.div`
   justify-content: center;
   display: flex;
+  padding: 10px 0;
 `;

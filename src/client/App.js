@@ -3,7 +3,8 @@ import Todos from './components/todos/Todos';
 import AddTodo from './components/todos/AddTodo';
 import Sidebar from './components/containers/Sidebar';
 import AppContainer from './components/containers/AppContainer';
-import styled from 'styled-components';
+import Logo from './img/another-todo-logo.png';
+import Header from './components/common/Header';
 
 export default class App extends Component {
   constructor(props) {
@@ -113,7 +114,7 @@ export default class App extends Component {
 
     return (
       <AppContainer>
-        <Title>Another Todo App</Title>
+        <Header title="Another Todo" logo={Logo} />
         <Todos
           addTodo={this.addTodo}
           deleteTodo={this.deleteTodo}
@@ -129,7 +130,3 @@ export default class App extends Component {
     );
   }
 }
-
-const Title = styled.h1 `
-  text-align: center;
-`;

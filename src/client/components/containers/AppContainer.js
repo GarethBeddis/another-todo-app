@@ -14,10 +14,14 @@ export default class AppContainer extends Component {
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  margin: 50px 5px;
+  padding: 50px 5px;
 `;
 
 const Content = styled.div`
-  max-width: 550px;
+  max-width: 650px;
   width: 100%;
+  background-color: #fff;
+  padding: 50px;
+  border-radius: 3px;
+  box-shadow: inset 0px -2px 2px rgba(0,0,0,0.03);
 `;

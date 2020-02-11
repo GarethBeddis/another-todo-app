@@ -9,6 +9,7 @@ export default class Pill extends Component {
           type="button"
           value={this.props.label}
           onClick={e => this.props.onClick(e)}
+          className={this.props.active ? 'active' : ''}
         >
           {this.props.label}
         </PillButton>
@@ -28,4 +29,8 @@ const PillButton = styled.button`
   border-radius: 100px;
   background: none;
   cursor: pointer;
+
+  .active {
+    background-color: 'pink';
+  }
 `;

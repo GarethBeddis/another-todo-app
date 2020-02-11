@@ -44,11 +44,11 @@ const Label = styled.label`
     width: 22px;
     background-color: transparent;
     border-radius: 50px;
-    border: 1px solid #ff2173;
+    border: 1px solid #e4e4e4;
   }
 
   &:hover input:not(:checked) ~ .checkmark:after {
-    border: solid #ff2173;
+    border: solid #5dd6ba;
     border-width: 0 3px 3px 0;
     opacity: 1;
     transition: opacity 0.2s;
@@ -61,7 +61,9 @@ const Label = styled.label`
   }
 
   input:checked ~ .checkmark {
-    background-color: #ff2173;
+    background-color: #5dd6ba;
+    border: 1px solid #5dd6ba;
+    transition: colour 0.1s;
   }
 
   input:checked ~ .checkmark:after {
@@ -92,5 +94,6 @@ const Label = styled.label`
     align-items: center;
     padding: 0 10px;
     flex: 1;
+    transition: opacity 0.1s;
   }
 `;

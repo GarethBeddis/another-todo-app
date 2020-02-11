@@ -33,11 +33,12 @@ export default class AddTodo extends Component {
     return (
       <AddTodoForm onSubmit={this.onSubmit}>
         <InputText
+          name="title"
           type="text"
           value={this.state.title}
-          name="title"
           placeholder="Add item..."
           onChange={this.onChange}
+          autoFocus={true}
         />
         <InputSubmit type="submit" value="Submit" />
       </AddTodoForm>
@@ -46,14 +47,15 @@ export default class AddTodo extends Component {
 }
 
 const AddTodoForm = styled.form`
-  padding: 5px 0;
+  margin: 5px;
   display: flex;
 `;
 
 const InputText = styled.input`
-  padding: 5px;
+  padding: 10px 5px;
   border: 1px solid #e4e4e4;
   flex-grow: 1;
+  font-size: 16px;
 `;
 
 const InputSubmit = styled.input`

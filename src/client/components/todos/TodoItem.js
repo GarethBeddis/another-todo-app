@@ -24,7 +24,8 @@ const ListItem = styled.li`
   list-style: none;
   position: relative;
   display: flex;
- align-items: center;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 const DeleteButton = styled.button`
