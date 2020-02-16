@@ -1,8 +1,11 @@
 const mongoose = require('mongoose');
 
+const uri =
+  'mongodb+srv://<user>:<password>@<cluster>.mongodb.net/test?retryWrites=true&w=majority';
+
 const connectDB = async () => {
   try {
-    await mongoose.connect('mongodb://localhost/another-todo', {
+    await mongoose.connect(uri, {
       useNewUrlParser: true,
     });
     console.log('MongoDB connected...');
