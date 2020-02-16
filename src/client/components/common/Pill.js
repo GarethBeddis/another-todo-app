@@ -36,6 +36,8 @@ const PillButton = styled.button`
   border: 1px solid #e4e4e4;
   letter-spacing: 1px;
   opacity: 0.7;
+  font-size: 1em;
+  font-family: inherit;
 
   &.active {
     background-color: #ff2173;
