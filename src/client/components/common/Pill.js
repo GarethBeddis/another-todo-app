@@ -29,7 +29,9 @@ const PillButton = styled.button`
   border-radius: 100px;
   background: none;
   cursor: pointer;
-
+  font-size: 1em;
+  font-family: inherit;
+  
   .active {
     background-color: 'pink';
   }

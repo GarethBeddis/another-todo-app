@@ -56,6 +56,7 @@ const InputText = styled.input`
   border: 1px solid #e4e4e4;
   flex-grow: 1;
   font-size: 16px;
+  font-family: inherit;
 `;
 
 const InputSubmit = styled.input`
