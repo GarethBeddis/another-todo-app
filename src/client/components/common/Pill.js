@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 export default class Pill extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <PillContainer>
@@ -25,12 +29,18 @@ const PillContainer = styled.div`
 const PillButton = styled.button`
   text-transform: capitalize;
   border: none;
-  padding: 3px 15px;
-  border-radius: 100px;
-  background: none;
+  padding: 7px 20px;
+  border-radius: 3px;
   cursor: pointer;
+  background: none;
+  border: 1px solid #e4e4e4;
+  letter-spacing: 1px;
+  opacity: 0.7;
 
-  .active {
-    background-color: 'pink';
+  &.active {
+    background-color: #ff2173;
+    color: #fff;
+    border: none;
+    opacity: 1;
   }
 `;

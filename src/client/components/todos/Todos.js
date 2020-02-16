@@ -123,7 +123,10 @@ export default class Todos extends Component {
 
     return (
       <TodosContainer>
-        <TodoFilters updateFilter={this.updateFilter} />
+        <TodoFilters
+          updateFilter={this.updateFilter}
+          activeFilter={this.state.todoFilter}
+        />
         <AddTodo addTodo={this.addTodo} />
         <TodoItemsContainer>{this.todoItems}</TodoItemsContainer>
         <TodosCounter>

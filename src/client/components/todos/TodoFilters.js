@@ -5,12 +5,13 @@ import Pill from '../common/Pill';
 export default class TodoFilters extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      activeFilter: 'all',
-    }
 
     this.filters = ['all', 'active', 'completed'];
   }
+
+  handleChange = e => {
+    this.props.updateFilter(e);
+  };
 
   render() {
     this.todoFilters = this.filters.map(label => {
@@ -18,6 +19,7 @@ export default class TodoFilters extends Component {
         <Pill
           key={label}
           label={label}
+          active={label === this.props.activeFilter}
           onClick={e => this.props.updateFilter(e)}
         ></Pill>
       );
