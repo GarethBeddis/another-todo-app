@@ -24,4 +24,8 @@ const Content = styled.div`
   padding: 50px;
   border-radius: 3px;
   box-shadow: inset 0px -2px 2px rgba(0,0,0,0.03);
+
+  @media (max-width: 1024px) {
+    padding: 0;
+  }
 `;

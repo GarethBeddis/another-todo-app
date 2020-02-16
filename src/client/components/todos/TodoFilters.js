@@ -27,7 +27,7 @@ export default class TodoFilters extends Component {
 }
 
 const FiltersContainer = styled.div`
-  justify-content: center;
+  justify-content: space-evenly;
   display: flex;
   padding: 10px 0;
 `;

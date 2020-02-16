@@ -47,13 +47,14 @@ export default class AddTodo extends Component {
 }
 
 const AddTodoForm = styled.form`
-  margin: 5px;
+  padding: 10px 35px;
   display: flex;
 `;
 
 const InputText = styled.input`
   padding: 10px 5px;
-  border: 1px solid #e4e4e4;
+  border: none;
+  border-bottom: 1px solid #e4e4e4;
   flex-grow: 1;
   font-size: 16px;
 `;

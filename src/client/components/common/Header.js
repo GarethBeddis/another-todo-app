@@ -17,6 +17,7 @@ const HeaderContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  padding: 10px 0;
 
   h1,
   img {
