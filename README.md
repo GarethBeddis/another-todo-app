@@ -2,6 +2,8 @@
 
 A simple project to refamiliarise myself working with React, Node and Express, whilst learning MongoDB.
 
+![App Preview](preview.png)
+
 ## Prerequisites 
 
 ### MongoDB
